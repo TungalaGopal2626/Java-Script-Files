@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #character-count{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <textarea placeholder="Type a Message" id="message" onkeyup="count()"></textarea>
+    <p>Characters Remaining:<span id="character-count">34</span></p>
+    <script>
+function count(){
+    var message=document.getElementById("message").value
+    if(message.length<34)
+document.getElementById("character-count").innerHTML=34-message.length
+else{
+    document.getElementById("character-count").innerHTML="Limit Exceeded"
+    document.getElementById("message").setAttribute("disabled","disabled")
+
+
+}
+}
+    </script>
+</body>
+</html>

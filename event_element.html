@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="vechiles">Hero Honda</p>
+    <p class="vechiles">Tvs</p>
+    <p class="vechiles">cycle</p>
+    <button onclick="getVechile()">Submit</button>
+    <script>
+        function getVechile(){
+            // var arr=[98,5,73,18,4,94]
+            // console.log("array length is:"arr.length)
+            // for(var i=0;i<arr.length;i++){
+            //     console.log(arr[i])
+            // }
+            var vechileList=document.getElementsByClassName("vechiles")
+            console.log("vechileList")
+            // console.log(vechileList)
+            // console.log(vechileList[0].innerHTML)
+            // console.log(vechileList[1].innerHTML)
+            // console.log(vechileList[2].innerHTML)
+            for( var i=0;i<vechileList.length;i++){
+            console.log(vechileList[i].innerHTML)
+            }
+
+        }
+    </script>
+</body>
+<!-- <body>
+    <input type="text" id="name"/>
+    <p id="info">Intern in Codegnan</p>
+    <h1>Name:<span id="showInputData"></span></h1>
+   <button onclick="greet()">submit</button>
+   <script>
+    function greet(){
+        var name=document.getElementById("name").value
+        var information=document.getElementById("info").innerHTML
+        console.log(name,information)
+        document.getElementById("showInputData").innerHTML
+        // alert()
+    }
+   </script> 
+
+   
+</body> -->
+</html>

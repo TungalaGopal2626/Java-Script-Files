@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mobileError {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form onsubmit="return validate()" action="https://www.google.com">
+        <div>
+            <label for="">Name</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="">Phone Number</label> <br />
+            <input type="text" id="mobile" placeholder="Enter Mobile Number" />
+            <p id="mobileError"></p>
+        </div>
+        <button>Submit</button>
+    </form>
+    <script>
+        function validate() {
+            var name = document.getElementById("name").value
+             var  email=document.getElementById("email").value
+            var nameCheck = /^[a-zA-Z][a-zA-Z ]*$/
+            var mobileCheck=/^[0-9]{10}$/
+             var emailCheck=/^[a-zA-Z0-9.]+@[a-z]+\.[a-z]{2,3}$/
+            if (name == "") {
+                alert("please enter your name")
+                return false
+            }
+            if (!name.match(nameCheck)) {
+                alert("Name must carry only alphabet")
+                return false
+            }
+            var mobile = document.getElementById("mobile").value
+            if (!mobile.match(mobileCheck)) {
+                document.getElementById("mobileError").innerHTML = "Please Check your Mobile Number"
+                return false
+            }
+            if(email==""){
+                alert("Email can't be empty check once")
+            }
+            if(!email.match(nameCheck)){
+                alert("Check your Email")
+                return false
+            }
+            return true
+        }
+    </script>
+
+</body>
+
+</html>

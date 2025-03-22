@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <form onsubmit="return login()" method="POST" action="">
+        <p><input type="text" id="username" /></p>
+        <p><input type="text" id="password" /></p>
+        <button>Submit</button>
+    </form>
+    <script>
+        function login() {
+            var username = document.getElementById("username").value
+            var password = document.getElementById("password").value
+            console.log(username, password)
+            axios.post("https://reqres.in/api/users", { username, password })
+                .then((res) => {
+                    console.log(res)
+                })
+            // fetch("https://reqres.in/api/users",{
+            //     method:"POST",
+            //     headers:{
+            //       "Content-Type":"application/json"
+            //     },
+            //     body:JSON.stringify({username,password})
+            // })
+            // .then((res)=>{
+            //     console.log(res)
+            //     return res.json()
+            // })
+            // .then((res)=>{
+            //     console.log(res)
+            // })
+            return false
+        }
+    </script>
+</body>
+
+</html>

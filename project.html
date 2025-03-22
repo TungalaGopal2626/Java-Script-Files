@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form  id=form action="">
+        <input type="text" id="cityname"/>
+        <button>Search</button>
+    </form>
+    <div id="cities"></div>
+    <script>
+        const form=document.getElementById("form")
+        const inputValue=document.getElementById("cityname")
+        const info=document.getElementById("cities")
+        const apikey="5556436ef8fcd65f47135432eab909e7"
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault()
+            console.log(inputValue.value)
+            const url=` https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&appid=${apikey}&units=metric`
+            console.log(url)
+            axios.get(url)
+            .then((res)=>{
+                //console.log(res.data)
+                const {main,name}=res.data
+                console.log(main,name)
+                const paragraph=document.createElement(('p'))
+                paragraph.classList.add("city")
+                paragraph.innerHTML=`
+                <p>Name:${name}</p>
+                <p>${main.temp}</p>
+                `
+                info.appendChild(paragraph)
+            })
+            .catch((err)=>{
+                if(err.status=="404")
+                alert("City name is not found")
+            })
+            //  fetch(url)
+            // .then((res)=>{
+            //     console.log(url)
+            //      return res.json()
+            // })
+            // .then((res)=>{
+            //     console.log(url)
+            // })
+
+        
+        })
+    </script>
+</body>
+</html>
